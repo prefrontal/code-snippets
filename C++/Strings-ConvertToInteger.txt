@@ -1,0 +1,128 @@
+------------------------------------------------------------------------------------------
+
+Stringstream:
+
+   // Stringstream using a named stream object
+   string a = "25";
+   std::stringstream ss(a);
+   int theValue;
+   ss >> thevalue;
+   
+   // The stringstream way can be also used without having a named object
+   string str = "123";
+   int numb;
+   istringstream ( str ) >> numb;
+
+Using stoi() in C++11:
+
+   // Not available in all compilers
+   string a = "25";
+   int b = std::stoi (myString);
+
+Using atoi():
+
+   string a = "25";
+   int b = atoi (a.c_str());
+
+Using sscanf():
+
+   string a = "25";
+   sscanf(a.c_str(), "%d", &i)
+
+Single character subtraction;
+
+   // An integer value of 0 is a character value of 49
+   char a = "1";
+   int b = a - 48;
+   
+Using Boost Lexical Cast:
+
+   try
+   {
+      args.push_back(lexical_cast<short>(*argv));
+   }
+   catch (bad_lexical_cast &)
+   {
+      args.push_back(0);
+   }
+
+------------------------------------------------------------------------------------------
+
+What not to do
+
+Here is my first piece of advice: do not use stringstream for this. While at first it may seem simple to use, you'll find that you have to do a lot of extra work if you want robustness and good error handling.
+
+Here is an approach that intuitively seems like it should work:
+
+bool str2int (int &i, char const *s)
+{
+    std::stringstream ss(s);
+    ss >> i;
+    if (ss.fail()) {
+        // not an integer
+        return false;
+    }
+    return true;
+}
+
+This has a major problem: str2int(i, "1337h4x0r") will happily return true and i will get the value 1337. We can work around this problem by ensuring there are no more characters in the stringstream after the conversion:
+
+bool str2int (int &i, char const *s)
+{
+    char              c;
+    std::stringstream ss(s);
+    ss >> i;
+    if (ss.fail() || ss.get(c)) {
+        // not an integer
+        return false;
+    }
+    return true;
+}
+
+We fixed one problem, but there are still a couple of other problems.
+
+What if the number in the string is not base 10? We can try to accommodate other bases by setting the stream to the correct mode (e.g. ss << std::hex) before trying the conversion. But this means the caller must know a priori what base the number is -- and how can the caller possibly know that? The caller doesn't know what the number is yet. They don't even know that it is a number! How can they be expected to know what base it is? We could just mandate that all numbers input to our programs must be base 10 and reject hexadecimal or octal input as invalid. But that is not very flexible or robust. There is no simple solution to this problem. You can't simply try the conversion once for each base, because the decimal conversion will always succeed for octal numbers (with a leading zero) and the octal conversion may succeed for some decimal numbers. So now you have to check for a leading zero. But wait! Hexadecimal numbers can start with a leading zero too (0x...). Sigh.
+
+Even if you succeed in dealing with the above problems, there is still another bigger problem: what if the caller needs to distinguish between bad input (e.g. "123foo") and a number that is out of the range of int (e.g. "4000000000" for 32-bit int)? With stringstream, there is no way to make this distinction. We only know whether the conversion succeeded or failed. If it fails, we have no way of knowing why it failed. As you can see, stringstream leaves much to be desired if you want robustness and clear error handling.
+
+This leads me to my second piece of advice: do no use Boost's lexical_cast for this. Consider what the lexical_cast documentation has to say:
+
+Where a higher degree of control is required over conversions, std::stringstream and std::wstringstream offer a more appropriate path. Where non-stream-based conversions are required, lexical_cast is the wrong tool for the job and is not special-cased for such scenarios.
+What?? We've already seen that stringstream has a poor level of control, and yet it says stringstream should be used instead of lexical_cast if you need "a higher level of control". Also, because lexical_cast is just a wrapper around stringstream, it suffers from the same problems that stringstream does: poor support for multiple number bases and poor error handling.
+
+The best solution
+
+Fortunately, somebody has already solved all of the above problems. The C standard library contains strtol and family which have none of these problems.
+
+enum STR2INT_ERROR { SUCCESS, OVERFLOW, UNDERFLOW, INCONVERTIBLE };
+
+STR2INT_ERROR str2int (int &i, char const *s, int base = 0)
+{
+    char *end;
+    long  l;
+    errno = 0;
+    l = strtol(s, &end, base);
+    if ((errno == ERANGE && l == LONG_MAX) || l > INT_MAX) {
+        return OVERFLOW;
+    }
+    if ((errno == ERANGE && l == LONG_MIN) || l < INT_MIN) {
+        return UNDERFLOW;
+    }
+    if (*s == '\0' || *end != '\0') {
+        return INCONVERTIBLE;
+    }
+    i = l;
+    return SUCCESS;
+}
+Pretty simple for something that handles all the error cases and also supports any number base from 2 to 36. If base is zero (the default) it will try to convert from any base. Or the caller can supply the third argument and specify that the conversion should only be attempted for a particular base. It is robust and handles all errors with a minimal amount of effort.
+
+Other reasons to prefer strtol (and family):
+
+It exhibits much better runtime performance
+It introduces less compile-time overhead (the others pull in nearly 20 times more SLOC from headers)
+It results in the smallest code size
+There is absolutely no good reason to use any other method.
+
+From: http://stackoverflow.com/questions/194465/how-to-parse-a-string-to-an-int-in-c
+
+------------------------------------------------------------------------------------------
