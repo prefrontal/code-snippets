@@ -1,0 +1,34 @@
+The following formula, which is for the Gregorian calendar only, may be more convenient for computer programming. Note that in some programming languages the remainder operation can yield a negative result if given a negative operand, so mod 7 may not translate to a simple remainder.
+
+W = (k + floor(2.6m - 0.2) - 2C + Y + floor(Y/4) + floor(C/4)) mod 7
+
+where floor() denotes the integer floor function,
+
+k is day (1 to 31)
+m is month (1 = March, ..., 10 = December, 11 = Jan, 12 = Feb) Treat Jan & Feb as months of the preceding year
+C is century (1987 has C = 19)
+Y is year (1987 has Y = 87 except Y = 86 for Jan & Feb)
+W is week day (0 = Sunday, ..., 6 = Saturday)
+
+------------------------------------------------------------------------------------------
+
+Gaussian algorithm
+
+The Gaussian algorithm is much more compact and works without any lookup tables. A slight disadvantage is the unusual month and year counting convention. The formula is
+
+w = (d + floor (2.6 * m - 0.2 ) + y + floor(y/4) + floor(c/4) - (2*c)) % 7
+
+Where
+
+Y: year-1 for January or February,
+   year for the rest of the year
+d: day (1 to 31)
+m: shifted month (March=1,...February=12), i.e. ((month + 9) % 12) + 1
+y: last 2 digits of Y
+c: first 2 digits of Y
+w: day of week (0=Sunday,..6=Saturday)
+Note: There are two different ways that modulo can handle negative numbers. For this equation to work properly
+
+'(...) mod 7'
+
+needs to return a positive number if '(...)' is a negative number.
