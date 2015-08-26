@@ -1,0 +1,36 @@
+------------------------------------------------------------------------------------------
+
+You can use std::find from <algorithm>:
+
+std::find(vector.begin(), vector.end(), item)!=vector.end()
+This returns a bool (true if present, false otherwise). With your example:
+
+#include <algorithm>
+
+if ( std::find(vector.begin(), vector.end(), item)!=vector.end() )
+   do_this();
+else
+   do that();
+   
+------------------------------------------------------------------------------------------
+
+I use something like this...
+
+#include <algorithm>
+
+
+template <typename T> 
+const bool Contains( std::vector<T>& Vec, const T& Element ) 
+{
+    if (std::find(Vec.begin(), Vec.end(), Element) != Vec.end())
+        return true;
+
+    return false;
+}
+
+if (Contains(vector,item))
+   blah
+else
+   blah
+   
+------------------------------------------------------------------------------------------
