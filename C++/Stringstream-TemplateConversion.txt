@@ -1,0 +1,16 @@
+------------------------------------------------------------------------------------------
+
+Use the stringstream class for type conversion:
+
+#include <sstream>
+
+template<typename A, typename B>
+bool A2B(A& a, B& b)
+{
+	std::stringstream ss;
+	ss << a;
+	if(ss >> b) return 1;
+	else return 0;
+}
+
+------------------------------------------------------------------------------------------
