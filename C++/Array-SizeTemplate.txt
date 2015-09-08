@@ -1,0 +1,20 @@
+------------------------------------------------------------------------------------------
+
+Snippet: arraysize
+
+	template <typename T, std::size_t S>
+	inline constexpr std::size_t arraysize(T (&)[S]) { return S; }
+
+
+USAGE
+
+    const int foo[] = {1,2,3,4,5};
+    int* bar = new int[100];
+
+    cout << arraysize(foo) << endl; // prints 5
+    cout << arraysize(bar) << endl; // compiler error - not an array 
+
+Better than the typical sizeof approach because it will generate a compiler error when 
+used incorrectly - whereas sizeof will compile but just quietly give you incorrect sizes.
+
+------------------------------------------------------------------------------------------
