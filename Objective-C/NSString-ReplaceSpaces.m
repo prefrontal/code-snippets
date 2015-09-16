@@ -1,0 +1,1 @@
+NSString *filebase = [baseName stringByReplacingOccurrencesOfString: @" " withString: @""];
