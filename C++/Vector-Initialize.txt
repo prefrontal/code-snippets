@@ -1,0 +1,60 @@
+------------------------------------------------------------------------------------------
+
+Initializing std::vector
+
+From: http://stackoverflow.com/questions/2236197/what-is-the-easiest-way-to-initialize-a-stdvector-with-hardcoded-elements
+
+In C++11:
+
+    #include <vector>
+    using std::vector;
+    ...
+    vector<int> vec1 { 10, 20, 30 };
+    // or
+    vector<int> vec2 = { 10, 20, 30 };
+
+Using boost list_of:
+
+    #include <vector>
+    #include <boost/assign/list_of.hpp>
+    using std::vector;
+    ...
+    vector<int> vec = boost::assign::list_of(10)(20)(30);
+
+Using boost assign:
+
+    #include <vector>
+    #include <boost/assign/std/vector.hpp>
+    using std::vector;
+    ...
+    vector<int> vec;
+    vec += 10, 20, 30;
+
+Conventional STL:
+
+    #include <vector>
+    using std::vector;
+    ...
+    static const int arr[] = {10,20,30};
+    vector<int> vec (arr, arr + sizeof(arr) / sizeof(arr[0]) );
+
+Conventional STL with generic macros:
+
+    #include <vector>
+    #define ARRAY_SIZE(ar) (sizeof(ar) / sizeof(ar[0])
+    #define ARRAY_END(ar) (ar + ARRAY_SIZE(ar))
+    using std::vector;
+    ...
+    static const int arr[] = {10,20,30};
+    vector<int> vec (arr, ARRAY_END(arr));
+
+Conventional STL with a vector initializer macro:
+
+    #include <vector>
+    #define INIT_FROM_ARRAY(ar) (ar, ar + sizeof(ar) / sizeof(ar[0])
+    using std::vector;
+    ...
+    static const int arr[] = {10,20,30};
+    vector<int> vec INIT_FROM_ARRAY(arr);
+   
+------------------------------------------------------------------------------------------
