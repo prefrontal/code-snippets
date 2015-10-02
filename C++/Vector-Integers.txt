@@ -1,0 +1,35 @@
+------------------------------------------------------------------------------------------
+
+    // Take an integer and create a vector of the digits
+    
+    std::vector<int> IntToVector (const int input)
+    {
+        std::vector<int> digits;
+        int temp = input;
+    
+        while (temp > 0)
+        {
+            digits.push_back (temp % 10);
+            temp /= 10;
+        }
+    
+        std::reverse (digits.begin(), digits.end());
+    
+        return digits;
+    }
+
+------------------------------------------------------------------------------------------
+
+    // Take a vector of single integers and generate a whole integer value
+
+    int VectorToInt (const std::vector<int>input)
+    {
+        int output = 0;
+    
+        for (int i = 0; i < input.size(); i++)
+            output += input.at(i) * std::pow (10, input.size()-i-1);
+
+        return output;
+    }
+   
+------------------------------------------------------------------------------------------
