@@ -1,0 +1,32 @@
+// ---------------------------------------------------------------------------------------
+
+// From: http://natashatherobot.com/watchconnectivity-say-hello-to-wcsession/
+
+// At this point, I would recommend wrapping your WCSession Singleton 
+// into your own Singleton, which you can use throughout your app:
+
+import WatchConnectivity
+ 
+// Note that the WCSessionDelegate must be an NSObject 
+// So no, you cannot use the nice Swift struct here!
+class WatchSessionManager: NSObject, WCSessionDelegate {
+    
+    // Instantiate the Singleton
+    static let sharedManager = WatchSessionManager()
+    private override init() {
+        super.init()
+    }
+    
+    // Keep a reference for the session, 
+    // which will be used later for sending / receiving data
+    private let session = WCSession.defaultSession()
+    
+    // Activate Session
+    // This needs to be called to activate the session before first use!
+    func startSession() {
+        session.delegate = self
+        session.activateSession()
+    }
+}
+
+// ---------------------------------------------------------------------------------------
