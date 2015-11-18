@@ -1,0 +1,21 @@
+// ---------------------------------------------------------------------------------------
+
+// http://natashatherobot.com/watchkit-check-device-screen-size-in-code/
+
+Use the WKInterfaceDevice class to get the device bounds:
+
+	let currentDevice = WKInterfaceDevice.currentDevice()
+	let bounds = currentDevice.screenBounds
+	// 38mm: (0.0, 0.0, 136.0, 170.0)
+	// 42mm: (0.0, 0.0, 156.0, 195.0)
+ 
+	if bounds.width > 136.0 
+	{
+		println("This is the big watch")
+	} 
+	else 
+	{
+		println("This is the small watch")
+	}
+
+// ---------------------------------------------------------------------------------------
