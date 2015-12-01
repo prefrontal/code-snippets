@@ -1,0 +1,9 @@
+// ---------------------------------------------------------------------------------------
+
+#import <Availability.h>
+id color = nil;
+#if defined(__MAC_OS_X_VERSION_MAX_ALLOWED) color = [NSColor orangeColor];
+#elsif defined(__IPHONE_OS_VERSION_MIN_REQUIRED) color = [UIColor purpleColor];
+#endif
+
+// ---------------------------------------------------------------------------------------
