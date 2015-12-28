@@ -4,9 +4,10 @@
 
 @implementation UIViewController (Tracking)
 
-+ (void)load {
++ (void)load 
+{
     static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    dispatch_once (&onceToken, ^{
         Class class = [self class];
 
         SEL originalSelector = @selector(viewWillAppear:);
@@ -27,12 +28,15 @@
                 method_getImplementation(swizzledMethod),
                 method_getTypeEncoding(swizzledMethod));
 
-        if (didAddMethod) {
+        if (didAddMethod) 
+        {
             class_replaceMethod(class,
                 swizzledSelector,
                 method_getImplementation(originalMethod),
                 method_getTypeEncoding(originalMethod));
-        } else {
+        } 
+        else 
+        {
             method_exchangeImplementations(originalMethod, swizzledMethod);
         }
     });
@@ -40,7 +44,8 @@
 
 #pragma mark - Method Swizzling
 
-- (void)xxx_viewWillAppear:(BOOL)animated {
+- (void)xxx_viewWillAppear:(BOOL)animated 
+{
     [self xxx_viewWillAppear:animated];
     NSLog(@"viewWillAppear: %@", self);
 }
