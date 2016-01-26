@@ -1,0 +1,20 @@
+// -- Optionals ----------------------------------------------------------
+
+// Declaring Optionals
+
+    var optionalBool:Bool?     = true
+    var optionalInteger:Int?   = 1
+    var optionalDouble:Double? = 70.0
+    var optionalString:String? = "TestString"
+
+// Unwrap an optional
+
+    var optionalName:String? = "Milo"
+    if let name = optionalName
+    {
+        print ("Not nil")
+    }
+
+// When working with optional values, you can write ? before operations like 
+// methods, properties, and subscripting. If the value before the ? is nil, 
+// everything after the ? is ignored and the value of the expression is nil.
