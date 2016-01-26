@@ -39,3 +39,16 @@
 
     var emptyArray = [String]()
     var emptyDictionary = [String:Double]()
+    
+/* Variable Miscellany */
+
+// Numeric Literals
+
+    let decimalInteger = 17
+    let binaryInteger  = 0b10001   // 17 in binary notation
+    let octalInteger   = 0o21      // 17 in octal notation
+    let hexInteger     = 0x11      // 17 in hexadecimal notation
+    
+// Type Aliases
+
+    typealias AudioSample = UInt16
