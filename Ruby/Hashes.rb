@@ -33,3 +33,11 @@
 	favorite_colors.keys
 	
 	favorite_colors.values
+	
+# Iterate over a hash
+
+	myHash.each do |keyVar,valueVar|
+		puts "#{keyVar}: #{valueVar}"
+	end
+
+	myHash.each {|keyVar, valueVar| puts "#{keyVar}: #{valueVar}"}

@@ -69,3 +69,13 @@
 	# Get the first or last value
 	my_arr.first
 	my_arr.last
+	
+# Iterate over an array
+
+	myArray.each do |x|
+		puts "#{x}"
+	end
+
+	myArray.each {|x| puts "#{x}"}
+
+	myArray.each_with_index {|x,index| puts "#{index}: #{x}"}
