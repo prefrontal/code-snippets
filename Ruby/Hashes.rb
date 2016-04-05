@@ -41,3 +41,10 @@
 	end
 
 	myHash.each {|keyVar, valueVar| puts "#{keyVar}: #{valueVar}"}
+	
+# Iterate over keys and values
+
+	myHash.each_key {#block_here}
+	myHask.each_value {#block_here}
+	
+

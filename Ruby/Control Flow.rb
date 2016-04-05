@@ -14,12 +14,18 @@
 	else
 		# This code will not run unless the variable is NOT a String
 	end
+	
+	# Single line
+	puts "Test" if somethingIstrue
 
 # Unless statements
 
 	unless somethingIstrue
 		# Run this code unless the above statement is true
 	end
+	
+	# Single line
+	puts "Test" unless somethingIsTrue
 	
 # For Loops
 
@@ -29,3 +35,12 @@
 
 	1.upto(200)
 	200.downto(1)
+
+# Case statement
+
+	case language
+	when "JS" then puts "Javascript"
+	when "PY" then puts "Python"
+	when "RB" then puts "Ruby"
+	else puts "Unknown"
+	end
