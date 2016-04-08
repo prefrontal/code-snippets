@@ -79,3 +79,11 @@
 	myArray.each {|x| puts "#{x}"}
 
 	myArray.each_with_index {|x,index| puts "#{index}: #{x}"}
+	
+# Apply to all
+
+	# Return a copy
+	myArray.collect {|num| num**2}
+	
+	# Mutate original
+	myArray.collect! {|num| num**2}
