@@ -1,0 +1,21 @@
+// -- Git Branches -----------------------------------------------------------------------
+
+# List branches
+
+	git branch -av
+	
+# Switch HEAD branch
+
+	git checkout <branch>
+	
+# Create new branch based on HEAD
+
+	git branch <newBranch>
+	
+# Delete a local branch
+
+	git branch -d <branch>
+	
+# Mark commit with a tag
+
+	git tag <tagName>

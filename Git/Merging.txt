@@ -1,0 +1,26 @@
+// -- Git Merging ------------------------------------------------------------------------
+
+# Merge branch into HEAD
+
+	git merge <branch>
+	
+# Rebase HEAD onto branch
+
+	git rebase <branch>
+	
+# Abort a rebase
+
+	git rebase --abort
+	
+# Continue a rebase after resolving conflicts
+
+	git rebase --continue
+	
+# Use merge tool to solve conflicts
+
+	git mergetool
+	
+# Manually solve conflicts and mark as resolved
+
+	git add <resolvedFile>
+	git rm <resolvedFile>
