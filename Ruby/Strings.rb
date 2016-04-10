@@ -7,7 +7,6 @@
 	s[-1]		# "o"
 	s[2..4]		# "llo"
 	
-	
 # Get string length
 
     myString.length
@@ -34,3 +33,10 @@
     
     # Reverse a string
     myString.reverse
+    
+# Iterate over string
+
+	s = "ABCDEFG"
+	s.each_char {|x| puts "#{X}"}
+	s.each_byte {|x| puts "#{X}"}
+	s.each_line {|x| puts "#{X}"}

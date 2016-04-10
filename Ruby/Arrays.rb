@@ -2,9 +2,17 @@
 
 # Make a new array
 
+	# Create array
 	a = Array.new 
 	b = []
 	c = Array[]
+	
+	# Preallocate and initialize
+	a = Array.new (5)		# [nil, nil, nil, nil, nil]
+	b = Array.new (5,0)		# [0, 0, 0, 0, 0]
+	
+	# Copy array
+	copy = Array.new(firstArray)
 	
 # Get value for an index
 
@@ -87,3 +95,10 @@
 	
 	# Mutate original
 	myArray.collect! {|num| num**2}
+	
+# Boolean operations
+
+	a = [1,1,2,2,3,3]
+	b = [2,2]
+	c = a | b		# [1,2,3]
+	d = a & b		# [2]
