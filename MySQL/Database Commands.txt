@@ -1,0 +1,21 @@
+# ---- Database Commands -----------------------------------------------------------------
+
+Create a database on the sql server.
+
+	mysql> create database [databasename];
+
+List all databases on the sql server.
+
+	mysql> show databases;
+
+Switch to a database.
+
+	mysql> use [db name];
+	
+To see database's field formats.
+
+	mysql> describe [table name];
+
+To delete a db.
+
+	mysql> drop database [database name];

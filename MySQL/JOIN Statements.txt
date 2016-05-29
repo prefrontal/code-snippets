@@ -1,0 +1,5 @@
+# ---- JOIN Commands ---------------------------------------------------------------------
+
+Join tables on common columns.
+
+	mysql> select lookup.illustrationid, lookup.personid,person.birthday from lookup left join person on lookup.personid=person.personid=statement to join birthday in person table with primary illustration id;

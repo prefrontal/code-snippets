@@ -1,0 +1,15 @@
+# ---- Column Types ----------------------------------------------------------------------
+
+Purpose								Data Type			Example
+
+Integers							int(M)				int(5)
+Floating-point (real) numbers		float(M,D)			float(12,3)
+Double-precision floating-point		double(M,D)			double(20,3)
+Dates and times						timestamp(M)		timestamp(8) (for YYYYMMDD)
+													    timestamp(12) (for YYYYMMDDHHMMSS)
+Fixed-length strings				char(M)				char(10)
+Variable-length strings				varchar(M)			varchar(20)
+A large amount of text				blob				blob
+Values chosen from a list			enum('value1',value2',...)	enum('apples','oranges','bananas')
+
+M is maximum to display, and D is precision to the right of the decimal.

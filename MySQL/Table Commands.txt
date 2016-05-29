@@ -1,0 +1,21 @@
+# ---- Table Commands --------------------------------------------------------------------
+
+To see all the tables in the db.
+
+	mysql> show tables;
+	
+Show table structure.
+
+	mysql> describe [table name];
+	
+To delete a table.
+
+	mysql> drop table [table name];
+
+Show all data in a table.
+
+	mysql> SELECT * FROM [table name];
+	
+Returns the columns and column information pertaining to the designated table.
+
+	mysql> show columns from [table name];

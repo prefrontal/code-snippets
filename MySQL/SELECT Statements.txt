@@ -1,0 +1,41 @@
+# ---- SELECT Commands -------------------------------------------------------------------
+
+Show certain selected rows with the value "whatever".
+
+	mysql> SELECT * FROM [table name] WHERE [field name] = "whatever";
+
+Show all records containing the name "Bob" AND the phone number '3444444'.
+
+	mysql> SELECT * FROM [table name] WHERE name = "Bob" AND phone_number = '3444444';
+
+Show all records not containing the name "Bob" AND the phone number '3444444' order by the phone_number field.
+
+	mysql> SELECT * FROM [table name] WHERE name != "Bob" AND phone_number = '3444444' order by phone_number;
+
+Show all records starting with the letters 'bob' AND the phone number '3444444'.
+
+	mysql> SELECT * FROM [table name] WHERE name like "Bob%" AND phone_number = '3444444';
+
+Show all records starting with the letters 'bob' AND the phone number '3444444' limit to records 1 through 5.
+
+	mysql> SELECT * FROM [table name] WHERE name like "Bob%" AND phone_number = '3444444' limit 1,5;
+
+Use a regular expression to find records. Use "REGEXP BINARY" to force case-sensitivity. This finds any record beginning with a.
+
+	mysql> SELECT * FROM [table name] WHERE rec RLIKE "^a";
+
+Show unique records.
+
+	mysql> SELECT DISTINCT [column name] FROM [table name];
+
+Show selected records sorted in an ascending (asc) or descending (desc).
+
+	mysql> SELECT [col1],[col2] FROM [table name] ORDER BY [col2] DESC;
+
+Return number of rows.
+
+	mysql> SELECT COUNT(*) FROM [table name];
+
+Sum column.
+
+	mysql> SELECT SUM(*) FROM [table name];
