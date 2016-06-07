@@ -1,0 +1,28 @@
+# ---- Python Enumerations ---------------------------------------------------------------
+
+# Faking enumerations in Python using classes:
+
+	class Materials:
+		Shaded, Shiny, Transparent, Matte = range(4)
+    
+# Automatic initialization:
+
+	class Enumeration(object):
+			def __init__(self, names):  # or *names, with no .split()
+				for number, name in enumerate(names.split()):
+					setattr(self, name, number)
+
+	foo = Enumeration("bar baz quux")
+
+------------------------------------------------------------------------------------------
+
+# Real enumerations (Python 3.4 and above)
+
+	from enum import Enum
+
+	class Color(Enum):
+		red = 1
+		green = 2
+		blue = 3
+		
+------------------------------------------------------------------------------------------
