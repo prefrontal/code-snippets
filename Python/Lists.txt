@@ -1,8 +1,12 @@
 # ---- Python Lists ----------------------------------------------------------------------
 
-# Initialization
+# Creation
 
 	my_list = []
+
+# Initialization
+
+	bigNumber = [0 for x in range(NUMBER_ARRAY_SIZE)]
 
 # Initialize a 2D list:
 
