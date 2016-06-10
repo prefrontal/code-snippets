@@ -1,0 +1,8 @@
+# ---- Python Dictionaries ---------------------------------------------------------------
+
+a = {'red': 'rouge', 'blue': 'bleu', 'green': 'vert'}  
+b = a['red']                                           
+c = [value for key, value in b.items()]
+d = a.get('yellow', 'no translation found')   
+	
+------------------------------------------------------------------------------------------

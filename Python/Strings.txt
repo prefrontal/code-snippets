@@ -1,0 +1,9 @@
+# ---- Python Strings --------------------------------------------------------------------
+
+a = 'red'                      # assignment
+char = a[2]                    # access individual characters
+'red ' + 'blue'                # string concatenation
+'1, 2, three'.split(',')       # split string into list
+'.'.join(['1', '2', 'three'])  # concatenate list into string 
+	
+------------------------------------------------------------------------------------------
