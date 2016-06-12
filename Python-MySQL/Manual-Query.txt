@@ -1,0 +1,60 @@
+# The following example shows how to query data using a cursor created using the
+# connection's cursor() method. The data returned is formatted and printed on the console.
+# The task is to select all employees hired in the year 1999 and print their names and
+# hire dates to the console.
+
+	import datetime
+	import mysql.connector
+
+	cnx = mysql.connector.connect(user='scott', database='employees')
+	cursor = cnx.cursor()
+
+	query = ("SELECT first_name, last_name, hire_date FROM employees "
+			 "WHERE hire_date BETWEEN %s AND %s")
+
+	hire_start = datetime.date(1999, 1, 1)
+	hire_end = datetime.date(1999, 12, 31)
+
+	cursor.execute(query, (hire_start, hire_end))
+
+	for (first_name, last_name, hire_date) in cursor:
+	  print("{}, {} was hired on {:%d %b %Y}".format(
+		last_name, first_name, hire_date))
+
+	cursor.close()
+	cnx.close()
+
+# We first open a connection to the MySQL server and store the connection object in the 
+# variable cnx. We then create a new cursor, by default a MySQLCursor object, using the 
+# connection's cursor() method.
+
+# In the preceding example, we store the SELECT statement in the variable query. Note that 
+# we are using unquoted %s-markers where dates should have been. Connector/Python converts 
+# hire_start and hire_end from Python types to a data type that MySQL understands and adds 
+# the required quotes. In this case, it replaces the first %s with '1999-01-01', and the 
+# second with '1999-12-31'.
+
+# We then execute the operation stored in the query variable using the execute() method. 
+# The data used to replace the %s-markers in the query is passed as a tuple: (hire_start, 
+# hire_end).
+
+# After executing the query, the MySQL server is ready to send the data. The result set 
+# could be zero rows, one row, or 100 million rows. Depending on the expected volume, you 
+# can use different techniques to process this result set. In this example, we use the 
+# cursor object as an iterator. The first column in the row is stored in the variable 
+# first_name, the second in last_name, and the third in hire_date.
+
+# We print the result, formatting the output using Python's built-in format() function. 
+# Note that hire_date was converted automatically by Connector/Python to a Python 
+# datetime.date object. This means that we can easily format the date in a more 
+# human-readable form.
+
+# The output should be something like this:
+
+	..
+	Wilharm, LiMin was hired on 16 Dec 1999
+	Wielonsky, Lalit was hired on 16 Dec 1999
+	Kamble, Dannz was hired on 18 Dec 1999
+	DuBourdieux, Zhongwei was hired on 19 Dec 1999
+	Fujisawa, Rosita was hired on 20 Dec 1999
+	..

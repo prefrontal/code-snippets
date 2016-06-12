@@ -1,0 +1,68 @@
+# Inserting or updating data is also done using the handler structure known as a cursor. 
+# When you use a transactional storage engine such as InnoDB (the default in MySQL 5.5 and 
+# later), you must commit the data after a sequence of INSERT, DELETE, and UPDATE 
+# statements.
+
+# This example shows how to insert new data. The second INSERT depends on the value of the 
+# newly created primary key of the first. The example also demonstrates how to use 
+# extended formats. The task is to add a new employee starting to work tomorrow with a 
+# salary set to 50000.
+
+	from __future__ import print_function
+	from datetime import date, datetime, timedelta
+	import mysql.connector
+
+	cnx = mysql.connector.connect(user='scott', database='employees')
+	cursor = cnx.cursor()
+
+	tomorrow = datetime.now().date() + timedelta(days=1)
+
+	add_employee = ("INSERT INTO employees "
+				   "(first_name, last_name, hire_date, gender, birth_date) "
+				   "VALUES (%s, %s, %s, %s, %s)")
+	add_salary = ("INSERT INTO salaries "
+				  "(emp_no, salary, from_date, to_date) "
+				  "VALUES (%(emp_no)s, %(salary)s, %(from_date)s, %(to_date)s)")
+
+	data_employee = ('Geert', 'Vanderkelen', tomorrow, 'M', date(1977, 6, 14))
+
+	# Insert new employee
+	cursor.execute(add_employee, data_employee)
+	emp_no = cursor.lastrowid
+
+	# Insert salary information
+	data_salary = {
+	  'emp_no': emp_no,
+	  'salary': 50000,
+	  'from_date': tomorrow,
+	  'to_date': date(9999, 1, 1),
+	}
+	cursor.execute(add_salary, data_salary)
+
+	# Make sure data is committed to the database
+	cnx.commit()
+
+	cursor.close()
+	cnx.close()
+
+# We first open a connection to the MySQL server and store the connection object in the 
+# variable cnx. We then create a new cursor, by default a MySQLCursor object, using the 
+# connection's cursor() method.
+
+# We could calculate tomorrow by calling a database function, but for clarity we do it in # Python using the datetime module.
+
+# Both INSERT statements are stored in the variables called add_employee and add_salary. 
+# Note that the second INSERT statement uses extended Python format codes.
+
+# The information of the new employee is stored in the tuple data_employee. The query to 
+# insert the new employee is executed and we retrieve the newly inserted value for the 
+# emp_no column (an AUTO_INCREMENT column) using the lastrowid property of the cursor 
+# object.
+
+# Next, we insert the new salary for the new employee, using the emp_no variable in the 
+# dictionary holding the data. This dictionary is passed to the execute() method of the 
+# cursor object if an error occurred.
+
+# Since by default Connector/Python turns autocommit off, and MySQL 5.5 and later uses 
+# transactional InnoDB tables by default, it is necessary to commit your changes using the 
+# connection's commit() method. You could also roll back using the rollback() method.
