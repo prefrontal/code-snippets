@@ -3,6 +3,7 @@
 # Creation
 
 	my_list = []
+	my_list2 = list()
 
 # Initialization
 
@@ -10,16 +11,88 @@
 
 # Initialize a 2D list:
 
-	lst_2d = [[0] * 3 for i in xrange(3)]
-	
-	>>> lst_2d
-	[[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-	
-	
+	list_2d = [[0] * 3 for i in xrange(3)]
+
 ------------------------------------------------------------------------------------------
-	
-# Remove duplicates from a list:
+
+# Append value to end of list
+
+	list.append("Test")
+
+# Insert new value at index 1
+
+	list.insert(1, "Test")
+
+# Add a list to an existing list
+
+	a = [1, 2, 3]
+	b = [4, 5, 6]
+	a.extend(b)
+
+# Pop an item from the list and return it
+
+	item = my_list.pop()
+	item = my_list.pop(4)
+
+# Remove specific entries from a list
+
+	name.remove("Bill")
+
+# Remove ranges from the list
+
+	del names[2:]
+
+# Remove duplicates from a list
 
 	L = list(set(L))
+
+# Copy a list
+
+	list2 = list1[:]
+
+------------------------------------------------------------------------------------------
+
+# Get list size
+
+	count = len(my_list)
+
+# Determine if a value is part of a list
+
+	items = ["A", "B", "C"]
+	if "C" in items:
+		print("Found")
+
+# Count the number of times a value is in a list
+
+	value = names.count("A")
+
+# Search a list and return indices
+
+	n = names.index("Apple")
+
+# Sort a list in place
+
+	list.sort()
+
+# Reverse a list
+
+	list.reverse()
+
+# Find smallest or largets items
+
+	low = min(list)
+	hi = max(list)
+
+------------------------------------------------------------------------------------------
+	
+# Iterate over list values
+
+	for name in names:
+		print(name)
+	
+# Iterate over list values with indices
+
+	for index, item in enumerate(my_list):
+		print(index, item)
 	
 ------------------------------------------------------------------------------------------
