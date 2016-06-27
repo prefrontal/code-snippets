@@ -1,8 +1,62 @@
 # ---- Python Dictionaries ---------------------------------------------------------------
 
-a = {'red': 'rouge', 'blue': 'bleu', 'green': 'vert'}  
-b = a['red']                                           
-c = [value for key, value in b.items()]
-d = a.get('yellow', 'no translation found')   
+# Creation
+
+	my_dict = {}
+	my_list2 = list()
+
+# Initialization
+
+	a = {'red': 'rouge', 'blue': 'bleu', 'green': 'vert'}  
+	b = a['red']                                           
+	c = [value for key, value in b.items()]
+	d = a.get('yellow', 'no translation found')   
+
+# Shallow copy a dictionary
+
+	dict2 = dict1.copy()
+
+------------------------------------------------------------------------------------------
+
+# Add key/value to dictionary
+
+	plants["radish"] = 2
+
+# Delete a key/value from the dictionary
+
+	del plants["radish"]
+
+# Get value for key
+# Returns None if no value is found for a key
+# A KeyError occurs on invalid key
+
+	plants["radish"]
+	
+	plants.get("radish")
+	
+# Testing for key inclusion
+
+	if "radish" in plants:
+		print("Has radish")
+		
+# Count of key-value tuples in a dictionary
+
+	len(plants)
+	
+------------------------------------------------------------------------------------------
+	
+# Enumerate dictionary values
+
+	for plant in plants:
+		print(plant)
+		
+# Enumerate dictionary keys
+
+	for k in plants.keys()
+		print(plants[k])
+	
+# Sort the keys from a dictionary
+
+	keys = sorted(hits.keys())
 	
 ------------------------------------------------------------------------------------------
