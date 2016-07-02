@@ -1,9 +1,110 @@
 # ---- Python Strings --------------------------------------------------------------------
 
-a = 'red'                      # assignment
-char = a[2]                    # access individual characters
-'red ' + 'blue'                # string concatenation
-'1, 2, three'.split(',')       # split string into list
-'.'.join(['1', '2', 'three'])  # concatenate list into string 
+# Creating Strings
+
+	aString = 'red'					# Simple assignment
+
+# Accessing String Values
+
+	myVar = aString[2]				# Individual characters
+	myVar = aString[0:2]			# Defined range slice
+
+# String Membership
+
+	'e' in aString					# Does character exist in string
+
+# String Operations
+
+	'red ' + 'blue'                 # String concatenation
+	2 * 'red'						# String repetition
+	
+------------------------------------------------------------------------------------------
+
+# Built-in Methods
+
+	myString.capitalize()			# Capitalize first letter
+	myString.center(x,y)			# Space-padded string centered to width
+	myString.count(str,end)			# How many times a substring appears 
+	decode(encoding,errors)			# Decode using specified encoding
+	encode(encoding,errors)			# Encode using specified encoding
+	endswith(suffix,beg,end)		# Does a string end with suffix
+	expandtabs(tabsize)				# Expand tabs to spaces
+	find(str,beg,end)				# Does string contain substring
+	index(str,beg,end)				# Like find(), but raises exceptions
+	isalnum()						# Is string all numbers?
+	isalpha()						# Is string all letters?
+	isdigit()						# Is string all digits?
+	islower()						# Are all characters lowercase?
+	isnumeric()						# Is string all numeric?
+	isspace()						# Is string only whitespace?
+	
+	istitle()						# Is string title cased?
+	isupper()						# Is string all uppercase?
+	join(seq)						# Merges sequence into a string
+	len(string)						# Return length of a string
+	ljust(width)					# Create a left-justified string
+	lower()							# Convert to lowercase
+	lstrip()						# Remove leading whitespace
+	maketrans()						# Return a translation table
+	max(str)						# Return max alphabetical character
+	min(str)						# Return min alphabetical character
+	replace(old,new)				# Replace occurrences of old with new
+	rfind(str,beg,end)				# Find in reverse
+	rindex(str,beg,end)				# Same as index(), but in reverse
+	rjust(width,fill)				# Right justify a string
+	rstrip()						# Remove trailing whitespace
+	split(str,num)					# Split string by delimiter
+	splitlines(num)					# Split string at all newlines
+	startswith(str,beg,end)			# Does string start with substring?
+	strip(chars)					# Does lstrip() and rstrip()
+	swapcase()						# Invert case of all characters
+	title()							# Returns titlecased string
+	translate(table,delete)			# Translate string by translation table
+	upper()							# Convert to uppercase
+	zfill()							# Return left padded string
+	isdecimal()						# Does unicode string contain only decimal characters?
+
+------------------------------------------------------------------------------------------
+
+# String Formatting
+
+	# 	%c	character
+	# 	%s	string conversion via str() prior to formatting
+	# 	%i	signed decimal integer
+	# 	%d	signed decimal integer
+	# 	%u	unsigned decimal integer
+	#	%o	octal integer
+	# 	%x	hexadecimal integer (lowercase letters)
+	# 	%X	hexadecimal integer (UPPERcase letters)
+	# 	%e	exponential notation (with lowercase 'e')
+	# 	%E	exponential notation (with UPPERcase 'E')
+	# 	%f	floating point real number
+	# 	%g	the shorter of %f and %e
+	# 	%G	the shorter of %f and %E
+	
+	# 	*		argument specifies width or precision
+	# 	-		left justification
+	# 	+		display the sign
+	# 	<sp>	leave a blank space before a positive number
+	# 	#		add the octal leading zero ( '0' ) or hexadecimal leading '0x' or '0X', depending on whether 'x' or 'X' were used.
+	# 	0		pad from left with zeros (instead of spaces)
+	# 	%		'%%' leaves you with a single literal '%'
+	# 	(var)	mapping variable (dictionary arguments)
+	# 	m.n.	m is the minimum total width and n is the number of digits to display after the decimal point (if appl.)
+
+------------------------------------------------------------------------------------------
+
+# String Constants
+
+	string.ascii_letters		# ASCII upper and lowercase
+	string.ascii_lowercase		# ASCII lowercase letters
+	string.ascii_uppercase		# ASCII uppercase letters
+	
+	string.digits				# Numeric digits
+	string.hexdigits			# Hex digits
+	string.octdigits			# Octal digits
+	string.punctuation			# ASCII digits considered punctuation
+	string.printable			# All printable ASCII digits
+	string.whitespace			# ASCII digits considered whitespace
 	
 ------------------------------------------------------------------------------------------
