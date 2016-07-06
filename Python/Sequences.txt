@@ -1,0 +1,18 @@
+# ---- Python Sequences ------------------------------------------------------------------
+
+# Get index and item while iterating
+
+	for i,j in enumerate(colors)
+		print(i, "->", j)
+
+# Iterate in sorted order
+
+	for color in sorted(colors)
+		print(color)
+
+# Iterate backward over a sequence
+
+	for color in reversed(colors)
+		print(color)
+	
+------------------------------------------------------------------------------------------
