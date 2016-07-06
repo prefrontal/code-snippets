@@ -1,0 +1,33 @@
+# ---- Python Classes --------------------------------------------------------------------
+
+# Class
+class Point(object):
+    def __init__(self, x):
+        self.x = x
+        
+    def __call__(self):
+        print self.x
+
+x = Point(3)
+	
+------------------------------------------------------------------------------------------
+
+# Inheritance
+
+	class DerivedClassName(BaseClassName):
+		<statement-1>
+		.
+		.
+		.
+		<statement-N>
+		
+# Multiple Inheritance
+
+	class DerivedClassName(Base1, Base2, Base3):
+		<statement-1>
+		.
+		.
+		.
+		<statement-N>
+		
+------------------------------------------------------------------------------------------
