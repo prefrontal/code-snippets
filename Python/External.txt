@@ -1,33 +1,19 @@
-# ---- Python Classes --------------------------------------------------------------------
+# ---- Python External Calls -------------------------------------------------------------
 
-# Class
-class Point(object):
-    def __init__(self, x):
-        self.x = x
-        
-    def __call__(self):
-        print self.x
+# To simply run a command:
 
-x = Point(3)
+	import subprocess
+	subprocess.call(['mkdir', 'empty_folder'])
 	
-------------------------------------------------------------------------------------------
+# If you want to run a command and get it's resulting output:
 
-# Inheritance
+	import subprocess
+	output = subprocess.check_output(['ls', '-l'])
+	
+# If you are trying to run commands that are built into the shell 
+# such as cd or dir, you will need to specify the shell=True flag:
 
-	class DerivedClassName(BaseClassName):
-		<statement-1>
-		.
-		.
-		.
-		<statement-N>
-		
-# Multiple Inheritance
-
-	class DerivedClassName(Base1, Base2, Base3):
-		<statement-1>
-		.
-		.
-		.
-		<statement-N>
+	import subprocess
+	output = subprocess.call(['cd', '/'], shell=True)
 		
 ------------------------------------------------------------------------------------------
