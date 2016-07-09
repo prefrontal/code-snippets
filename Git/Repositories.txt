@@ -1,0 +1,9 @@
+// -- Git Repositories -------------------------------------------------------------------
+
+# Creates a new local repository with the specified name
+
+	git init [project-name]
+	
+# Downloads a project and its entire version history
+
+	git clone [url]

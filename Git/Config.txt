@@ -1,0 +1,13 @@
+// -- Git Config -------------------------------------------------------------------------
+
+# Set the name you want a ached to your commit transactions
+
+	git config --global user.name "[name]"
+
+# Set the email you want a ached to your commit transactions
+
+	git config --global user.email "[email address]"
+
+# Enables helpful colorization of command line output
+
+	git config --global color.ui auto
