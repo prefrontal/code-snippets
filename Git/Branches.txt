@@ -2,20 +2,21 @@
 
 # List branches
 
+	git branch
 	git branch -av
 	
+# Create new branch (based on HEAD)
+
+	git branch <name>
+
 # Switch HEAD branch
 
-	git checkout <branch>
-	
-# Create new branch based on HEAD
-
-	git branch <newBranch>
+	git checkout <name>
 	
 # Delete a local branch
 
 	git branch -d <branch>
-	
-# Mark commit with a tag
 
-	git tag <tagName>
+# Merge changes from a branch
+
+	git merge <name>

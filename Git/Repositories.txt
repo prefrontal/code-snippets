@@ -4,19 +4,49 @@
 
 	git init [project-name]
 	
-# Downloads a project and its entire version history
+# Get status of uncommitted changes to a repository
 
-	git clone [url]
+	git status
 
 # Get a chronological history of actions on the repository
 
 	git reflog
 	
+# View repository history
+
+	git log
+	git log blue.html							# Display the history for a single file
+	git log --oneline							# Condense entries to a single line
+	git log HEAD~4..HEAD						# Log between two points in a branch
+	git log -n 4								# View last four commits
+
 # View commit differences between two branches
 
 	git log <branch1>..<branch2>
 	
-# Only view the last four commits
-	
-	git log HEAD~4..HEAD
-	git log -n 4
+# Add and remove files
+
+	git add <name>
+	git rm <name>
+
+# Commit the current snapshot
+
+	git commit
+	git commit -m "Commit message here"			# Commit with specified message
+
+# Display all tags
+
+	git tag
+
+# Tag a commit
+
+	git tag -a v1.0 -m "Tag message"			# Create an annotated tag
+
+# Revert a commit, creating a new commit with changes
+
+	git revert [tag]							# Specify the commit you want to undo
+
+# Restore repository to last commit state
+
+	git reset --hard							# Change all tracked files to match commit
+	git clean -f								# Remove all untracked files
