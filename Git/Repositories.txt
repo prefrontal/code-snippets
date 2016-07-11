@@ -7,3 +7,16 @@
 # Downloads a project and its entire version history
 
 	git clone [url]
+
+# Get a chronological history of actions on the repository
+
+	git reflog
+	
+# View commit differences between two branches
+
+	git log <branch1>..<branch2>
+	
+# Only view the last four commits
+	
+	git log HEAD~4..HEAD
+	git log -n 4

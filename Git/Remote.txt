@@ -1,0 +1,21 @@
+// -- Git Remote -------------------------------------------------------------------------
+
+# Remote branches are always listed in the form <remote‑name>/<branch‑name>
+
+# See a list of remote branches
+
+	git remote
+	git remote -v
+	
+# Add a remote repository
+
+	git remote add <remote-repository-name> <location>
+	
+# Fetch list of remote branches from remote repository
+
+	git fetch <remote-repository-name>
+
+# Push branch to remote repository
+
+	git push <remote-repository-name> <branch-name>
+	

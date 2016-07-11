@@ -1,0 +1,34 @@
+// -- Git Utilities ----------------------------------------------------------------------
+
+# Save an archive of all files in a branch
+# No git versioning information is retained
+
+	git archive <name> --format=zip --output=../<name>.zip
+	
+# Save a bundle of all files in a branch
+# All git versioning information is retained
+
+	git bundle create ../<name>.bundle <name>
+	
+# Add a file that tells git what files to ignore
+
+	touch .gitignore
+	git add .gitignore
+	
+# Temporarily stash uncommitted changes
+
+	git stash
+	
+# Retrieve stashed uncommitted changes
+
+	git stash apply
+	
+# Git hooks can be used to automate actions 
+
+	# See documentation
+	
+# Show diff between two branches
+
+	git diff HEAD~2..HEAD~1						# Show changes between last commit and two back
+	git diff									# Show diff of uncommitted changes
+	git diff --cached							# Diff between staged commit and most recent commit
