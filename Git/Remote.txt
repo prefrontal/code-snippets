@@ -18,4 +18,5 @@
 # Push branch to remote repository
 
 	git push <remote-repository-name> <branch-name>
+	# Typically: git push origin master
 	
