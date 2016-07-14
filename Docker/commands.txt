@@ -8,7 +8,17 @@
 # List all running containers
 
     docker ps
+    
+# Check Docker version
 
+    docker --version
+    docker-compose --version
+    docker-machine --version
+
+# Verify Docker operation
+
+    docker run hello-world
+    
 # ---------------------------------------------------------------
 
 # Build a new container
