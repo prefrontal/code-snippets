@@ -1,0 +1,26 @@
+# Useful Docker Commands
+# ---------------------------------------------------------------
+
+# List all of the available containers
+
+    docker images
+    
+# List all running containers
+
+    docker ps
+
+# ---------------------------------------------------------------
+
+# Build a new container
+
+    docker build -t <container_tag> .
+    
+# Compose a new container
+
+    docker-compose -up
+    
+# Compose a new container with specified yml files
+
+    docker-compose -f 1.yml -f 2.yml -f 3.yml -up
+    
+# ---------------------------------------------------------------
