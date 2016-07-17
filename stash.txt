@@ -1,0 +1,5 @@
+#--Git Stash----------------------------------------------------------
+
+# Stash uncommitted changes
+
+    git stash
