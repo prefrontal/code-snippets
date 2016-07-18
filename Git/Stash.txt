@@ -1,0 +1,28 @@
+#-- Git Stash ----------------------------------------------------------------------------
+
+# List modifications that have been stashed away
+
+	git stash list
+	
+# Inspect stashed modifications
+
+	git stash show
+
+# Stash uncommitted changes
+
+    git stash
+
+# Apply stashed changes
+
+	git stash apply
+	git stash apply --index					# Try to restage changes
+	
+	git stash pop							# Apply latest stash and remove from stack
+	
+# Remove a stashed change from stack
+
+	git stash drop <stashName>
+	
+# Create a new branch from a stash
+
+	git stash branch <branchName>
