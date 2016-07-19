@@ -1,0 +1,21 @@
+# ---- Multiple Python Loggers ------------------------------------------------
+
+	import logging
+	formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+
+	# first file logger
+	logger_1 = logging.getLogger('simple_logger')
+	hdlr_1 = logging.FileHandler('simplefile_1.log')
+	hdlr_1.setFormatter(formatter)
+	logger_1.addHandler(hdlr_1)
+
+	# second file logger
+	logger_2 = logging.getLogger('simple_logger_2')
+	hdlr_2 = logging.FileHandler('simplefile_2.log')    
+	hdlr_2.setFormatter(formatter)
+	logger_2.addHandler(hdlr_2)
+
+	logger_1.info('message 1')
+	logger_2.error('error foo')
+
+# -----------------------------------------------------------------------------
