@@ -1,0 +1,17 @@
+# ---- Python SQLite Exceptions --------------------------------------------------------
+
+# Best practice:
+
+	try:
+		db = sqlite3.connect('data/mydb')
+		cursor = db.cursor()
+		cursor.execute('''<whatever>''')
+		db.commit()
+	except Exception as e:
+		db.rollback()
+		raise e
+	finally:
+		db.close()
+
+
+------------------------------------------------------------------------------------------

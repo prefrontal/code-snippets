@@ -1,0 +1,24 @@
+# ---- Python SQLite Data Insert ---------------------------------------------------------
+
+# Insert using tuple
+
+	cursor.execute('''INSERT INTO users(name, phone, email, password)
+				   VALUES(?,?,?,?)''', (name1,phone1, email1, password1))   
+	db.commit()
+
+# Insert using a dictionary
+
+	cursor.execute('''INSERT INTO users(name, phone, email, password)
+                  VALUES(:name,:phone, :email, :password)''',
+                  {'name':name1, 'phone':phone1, 'email':email1, 'password':password1})
+    db.commit()
+      
+# Complete multiple inserts at once
+
+	users = [(name1,phone1, email1, password1),
+			 (name2,phone2, email2, password2),
+			 (name3,phone3, email3, password3)]
+	cursor.executemany(''' INSERT INTO users(name, phone, email, password) VALUES(?,?,?,?)''', users)
+	db.commit()
+
+------------------------------------------------------------------------------------------

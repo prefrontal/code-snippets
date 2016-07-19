@@ -1,0 +1,11 @@
+# ---- Python SQLite Transactions --------------------------------------------------------
+
+# Commit a transaction
+
+	db.commit()
+
+# Roll back a transaction
+
+	db.rollback()
+
+------------------------------------------------------------------------------------------

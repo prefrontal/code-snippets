@@ -1,0 +1,13 @@
+# ---- Python SQLite Data Selects --------------------------------------------------------
+
+# Select one row
+
+	cursor.execute('''SELECT name, email, phone FROM users''')
+	user1 = cursor.fetchone() #retrieve the first row
+	
+# Select all rows	
+	
+	cursor.execute('''SELECT name, email, phone FROM users''')
+	all_rows = cursor.fetchall()
+
+------------------------------------------------------------------------------------------
