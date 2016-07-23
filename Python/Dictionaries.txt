@@ -29,6 +29,7 @@
 # Get value for key
 # Returns None if no value is found for a key
 # A KeyError occurs on invalid key
+# The .get() method can also provide a default value
 
 	plants["radish"]
 	
