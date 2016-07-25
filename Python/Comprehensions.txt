@@ -1,1 +1,21 @@
-# ---- Python Comprehensions --------------------------------------------------
+# ---- Python Comprehensions -------------------------------------------------------------
+
+
+# Example list comprehensions
+
+	# Basic list comprehension
+
+		doubled_odds = [n * 2 for n in numbers if n % 2 == 1]
+
+	# Nested loops
+	
+		flattened = [n for row in matrix for n in row]
+
+
+# Example dictionary comprehensions
+
+	# Basic dictionary comprehension
+	
+		flipped = {value: key for key, value in original.items()}
+
+------------------------------------------------------------------------------------------
