@@ -1,9 +1,13 @@
 # Useful Docker Commands
 # ---------------------------------------------------------------
 
-# List all of the available containers
+# List all of the available images
 
     docker images
+    
+# Run an image
+
+    docker run <imageName>
     
 # List all running containers
 
@@ -18,6 +22,18 @@
 # Verify Docker operation
 
     docker run hello-world
+    
+# Log in to Docker Hub
+
+    docker login --username=<name> --email=<email>
+    
+# Push an image to Docker Hub
+
+    docker push <userName>/<imageName>
+    
+# Remove image
+
+    docker rmi -f <imageName>
     
 # ---------------------------------------------------------------
 
