@@ -17,12 +17,31 @@
 ------------------------------------------------------------------------------------------
 
 # Real enumerations (Python 3.4 and above)
+# Enum member values are not restricted to integers. Any type of object can be associated with a member.
 
 	from enum import Enum
 
-	class Color(Enum):
+	class Color(enum.Enum):
 		red = 1
 		green = 2
 		blue = 3
+
+# Use the IntEnum class for enumerations where the members need to behave more like numbers, for example to support comparisons.
+
+	class BugStatus(enum.IntEnum):
+		new = 7
+		incomplete = 6
+		invalid = 5
+		wont_fix = 4
+		in_progress = 3
+		fix_committed = 2
+		fix_released = 1
 		
+# To require all members to have unique values, add the @unique decorator to the Enum.
+
+	@enum.unique
+	class BugStatus(enum.Enum):
+		...
+		
+
 ------------------------------------------------------------------------------------------
