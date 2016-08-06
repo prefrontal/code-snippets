@@ -1,0 +1,18 @@
+# ---- Python Requests Module -------------------------------------------------
+
+import requests
+
+r = requests.get('https://api.github.com/events')
+
+	r.status_code
+	r.headers['content-type']
+	r.encoding
+	r.text
+	r.json()
+
+payload = {'key1': 'value1', 'key2': 'value2'}
+r = requests.post("http://httpbin.org/post", data=payload)
+
+
+
+# -----------------------------------------------------------------------------
