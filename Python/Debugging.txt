@@ -1,7 +1,14 @@
 # ---- Python Debugging ------------------------------------------------------------------
 
-pip install debug
+# Typical usage to run under the debugger:
 
-import debug
+	>>> import pdb
+	>>> import mymodule
+	>>> pdb.run('mymodule.test()')
+		
+# Typical usage to set a breakpoint:
+
+	import pdb
+	pdb.set_trace()
 		
 ------------------------------------------------------------------------------------------
