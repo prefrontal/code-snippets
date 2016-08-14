@@ -2,13 +2,25 @@
 
 # Typical usage to run under the debugger:
 
-	>>> import pdb
-	>>> import mymodule
-	>>> pdb.run('mymodule.test()')
+	import pdb
+	import mymodule
+	pdb.run('mymodule.test()')
 		
 # Typical usage to set a breakpoint:
 
 	import pdb
 	pdb.set_trace()
+	
+# ----------------------------------------------------------------------------------------
+
+Debugger commands:
+
+bt: Print the traceback of the current execution call stack
+up: Move your scope up the function call stack to the caller
+down: Move your scope back down one level
+step: Run the next line of execution, then debug again even if in another function
+next: Run the next line of execution, then debug again but not in another function
+return: Run until the current function returns, then back to the debugger
+continue: Continue running until the next breakpoint
 		
-------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------
