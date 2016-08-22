@@ -1,0 +1,37 @@
+# ---- Python Method Timing --------------------------------------------------------------
+
+From: https://www.reddit.com/r/Python/comments/20x61y/share_the_code_youre_most_proud_of/
+
+	from __future__ import print_function
+	import time
+
+	class timer(object):
+		def __init__(self, func=print):
+			self.func = func
+
+		def __enter__(self):
+			self.time = time.time()
+
+		def __exit__(self, type, value, traceback):
+			total_time = time.time() - self.time
+			self.func(total_time)
+        
+If you want to know how long some code takes to run just use
+
+	with timer():
+		# do something
+    
+and it will print out how long it took to 
+finish whatever it was that you wanted to do.
+
+It can also take in a function as an argument
+
+	time_taken = []
+	for i in range(1000000):
+		with timer(time_taken.append)
+			# do something
+        
+this will add the amount of time taken each time to a list and 
+the average time can be obtained in a similar fashion to timeit.
+
+------------------------------------------------------------------------------------------
