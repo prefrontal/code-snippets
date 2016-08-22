@@ -1,0 +1,9 @@
+// ---- Java Base 64 Conversion ---------------------------------------------------------
+
+import java.util.Base64;
+
+byte[] bytes = "Hello, World!".getBytes("UTF-8");
+String encoded = Base64.getEncoder().encodeToString(bytes);
+byte[] decoded = Base64.getDecoder().decode(encoded);
+
+// --------------------------------------------------------------------------------------
