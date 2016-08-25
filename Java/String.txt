@@ -1,0 +1,13 @@
+// ---- Java String ---------------------------------------------------------------------
+
+// Checking for zero-length strings
+
+    if (stringToCheck != null && stringToCheck.length() > 0) {
+        outputVal = "do some work";
+    }
+
+if (stringToCheck != null && !stringToCheck.isEmpty()) {
+        outputVal = "also do some work";
+    }
+
+// --------------------------------------------------------------------------------------
