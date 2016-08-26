@@ -1,5 +1,11 @@
 // ---- Java String ---------------------------------------------------------------------
 
+// String length
+
+    int length()
+
+// --------------------------------------------------------------------------------------
+
 // Converting between integers
 
     String a = String.valueOf(2);   //integer to numeric string
@@ -14,5 +20,28 @@
     if (stringToCheck != null && !stringToCheck.isEmpty()) {
         outputVal = "also do some work";
     }
+
+// --------------------------------------------------------------------------------------
+
+// Comparison
+
+    boolean equals(String another) // CANNOT use '==' or '!=' to compare two Strings in Java
+    boolean equalsIgnoreCase(String another)
+    int compareTo(String another)  // return 0 if this string is the same as another;
+                                   // <0 if lexicographically less than another; or >0
+    int compareToIgnoreCase(String another)
+    boolean startsWith(String another)
+    boolean startsWith(String another, int fromIndex)  // search begins at fromIndex
+    boolean endsWith(String another)
+
+// Conversions
+    
+    String toLowerCase()
+    String toUpperCase()
+    String trim()          // create a new String removing white spaces from front and back
+    String replace(char oldChar, char newChar)  // create a new String with oldChar replaced by newChar
+    String concat(String another)               // same as thisString + another
+    char[] toCharArray()                        // create a char[] from this string
+    void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)  // copy into dst char[]
 
 // --------------------------------------------------------------------------------------
