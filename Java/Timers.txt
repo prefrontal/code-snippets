@@ -1,0 +1,15 @@
+// ---- Java Timers -----------------------------------------------------------------------------
+
+// Scheduling task using java.util.timer	
+	
+    static {
+        timer.schedule(new ScheduledTask(), 60000, 60000);
+    }
+    
+    private static class Schedule extends TimerTask {
+        @Override public void run() {
+            // doSomething();
+        }
+    }
+
+// ----------------------------------------------------------------------------------------------
