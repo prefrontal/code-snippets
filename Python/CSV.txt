@@ -1,0 +1,26 @@
+# ---- Python CSV ----------------------------------------------------------------------
+
+# Reading a CSV
+
+    reader = csv.reader(csvfile, delimiter=',', quotechar='"')
+    
+    headers = next(reader)
+    print(', '.join(headers))
+    
+    
+    for row in reader:
+        elements = []
+    
+        for element in row:
+            elements.append (element.strip())
+    
+        print(', '.join(elements))
+
+# Reading a CSV with a dictionary reader
+
+    dreader = csv.DictReader(csvfile)
+
+    for row in dreader:
+        print(row['fips_apn'].strip(), '    ', row['normalized_address'].strip())
+
+# --------------------------------------------------------------------------------------
