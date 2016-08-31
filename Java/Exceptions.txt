@@ -1,0 +1,42 @@
+// ---- Java Exceptions -------------------------------------------------------------------------
+
+// Catching exceptions
+
+    try {
+       // Protected code
+    }
+    catch (ExceptionName e1) {
+       // Catch block
+    }
+
+// Multiple catch blocks
+
+    try {
+       // Protected code
+    } catch (ExceptionType1 e1)
+    {
+       // Catch block
+    } catch (ExceptionType2 e2)
+    {
+       // Catch block
+    }
+
+// Finally blocks
+
+    try {
+       // Protected code
+    } catch (ExceptionType1 e1)
+    {
+       // Catch block
+    } finally
+    {
+       // Finally block
+    }
+
+// Throwing exceptions
+
+    public void withdraw(double amt) throws RemoteException, InsufficientFundsException {
+       // Method implementation
+    }
+   
+// ----------------------------------------------------------------------------------------------
