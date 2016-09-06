@@ -1,0 +1,16 @@
+# ---- Python Partial Functions ---------------------------------------------------------
+
+  import functools
+  
+  def myfunc(a, b=2):
+      print('Called myfunc with:', (a, b))
+  
+  # Regular function call:
+  myfunc('a', 3)
+  
+  # Set a different default value for 'b':
+  p1 = functools.partial(myfunc, b=4)
+  p1('passing a')
+  p1('override b', b=5)
+
+# ---------------------------------------------------------------------------------------
