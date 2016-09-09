@@ -1,0 +1,42 @@
+---- Regular Expressions -----------------------------------------------------------------
+
+From: https://pymotw.com/3/re/index.html
+
+# Simple Match 
+
+	import re
+
+	pattern = 'this'
+	text = 'Does this text match the pattern?'
+
+	match = re.search(pattern, text)
+
+	s = match.start()
+	e = match.end()
+
+	print('Found "{}"\nin "{}"\nfrom {} to {} ("{}")'.format(
+		match.re.pattern, match.string, s, e, text[s:e]))
+
+# Compiling Expressions
+
+	import re
+
+	# Precompile the patterns
+	regexes = [
+		re.compile(p)
+		for p in ['this', 'that']
+	]
+	text = 'Does this text match the pattern?'
+
+	print('Text: {!r}\n'.format(text))
+
+	for regex in regexes:
+		print('Seeking "{}" ->'.format(regex.pattern),
+			  end=' ')
+
+		if regex.search(text):
+			print('match!')
+		else:
+			print('no match')
+
+------------------------------------------------------------------------------------------
