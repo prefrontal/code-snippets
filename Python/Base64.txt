@@ -1,0 +1,22 @@
+---- Base64 ------------------------------------------------------------------------------
+
+# Encode Base64
+
+	import base64
+
+	# Load this source file and strip the header.
+	with open(__file__, 'r', encoding='utf-8') as input:
+		raw = input.read()
+		initial_data = raw.split('#end_pymotw_header')[1]
+
+	byte_string = initial_data.encode('utf-8')
+	encoded_data = base64.b64encode(byte_string)
+	
+# Decode Base64
+
+	import base64
+
+	encoded_data = b'VGhpcyBpcyB0aGUgZGF0YSwgaW4gdGhlIGNsZWFyLg=='
+	decoded_data = base64.b64decode(encoded_data)
+
+------------------------------------------------------------------------------------------
