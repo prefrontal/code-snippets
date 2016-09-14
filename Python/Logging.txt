@@ -13,4 +13,18 @@
 
 	logging.debug('This message should go to the log file')
 
+# Log file rotation
+
+	# Set up a specific logger with our desired output level
+	my_logger = logging.getLogger('MyLogger')
+	my_logger.setLevel(logging.DEBUG)
+
+	# Add the log message handler to the logger
+	handler = logging.handlers.RotatingFileHandler(
+		LOG_FILENAME,
+		maxBytes=20,
+		backupCount=5,
+	)
+	my_logger.addHandler(handler)
+
 ------------------------------------------------------------------------------------------
