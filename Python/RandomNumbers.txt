@@ -1,0 +1,15 @@
+# ---- Random Numbers --------------------------------------------------------------------
+
+# Random Number
+
+	import random
+
+	random.random()
+
+# Random Integer
+
+	import random
+	
+	random.randint(1, 100)
+
+# --------------------------------------------------------------------------------------
