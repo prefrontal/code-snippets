@@ -1,0 +1,7 @@
+# ---- MySQL Process Management ---------------------------------------------------------
+
+# Get list of processes
+SHOW FULL PROCESSLIST;
+
+# Kill a process
+kill <process id>
